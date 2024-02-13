@@ -1,0 +1,47 @@
+{% extends './base.html' %}
+
+{% block title %} 
+   Habilidades
+{% endblock %}
+
+
+{% block body %}
+
+
+    <div class="container mt-5 mb-3">
+        <div class="row">
+            {% for lenguaje, datos in mlenguajes.items() %}     
+                <div class="col-md-4">
+                    <div class="card p-3 mb-2">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                                <div class="ms-2 c-details">
+                                    <h6 class="mb-0" style="color: #0d6efd;">{{loop.index}}. <a style="color: black;">{{lenguaje}}</a></h6>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="badge"> <span>Design</span> </div>
+                        </div>
+                        <div class="mt-1">
+                            <hr>
+                            <p class="heading" style="text-align: center;">{{datos.descripcion}}</p>
+                            <p class="heading" style="text-align: center;">lanzamiento en el año: <a style="color: #0d6efd;">{{datos.lanzamiento}}</a></p>
+                            <p class="heading" style="text-align: center;">Popularidad: <a style="color: #0d6efd;">{{datos.popularidad}}</a></p>
+                            <div class="mt-5">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <div class="mt-3"><center> <span class="text1">Auto-estudio: <a class="text2" target="_blank" href="{{datos.link}}" style="text-decoration: none;">ir al curso</a></span> </center></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div> 
+
+
+
+{% endblock %}
